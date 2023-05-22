@@ -1,6 +1,8 @@
-import { useState, useRef, useEffect } from "react";
+//HEADERSECTION
+
+//Importing all necessary components,icons,files
+import { useState } from "react";
 import { BsFillFileEarmarkTextFill, BsCloudCheck } from "react-icons/bs";
-import "../styles.css";
 import { Button } from "@material-tailwind/react";
 import {
   AiOutlineStar,
@@ -10,72 +12,61 @@ import {
 } from "react-icons/ai";
 import { MdDriveFileMoveOutline, MdOutlineMessage } from "react-icons/md";
 import { RxCountdownTimer } from "react-icons/rx";
-
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-//import TextEditor from "./TextEditor";
+import "../styles.css";
+
+//Tried to implement wysiwyg editor but wasn't compatible so went ahead with Quill
 
 function HeaderSection() {
+  //To setState for Star aka Bookmark Icon on click
   const [active, setActive] = useState("");
   const handlestar = (star: string) => {
     setActive(star);
   };
 
+  //If clicked swap star aka Bookmark icon with filled blue one
   const renderStarContent = () => {
     switch (active) {
       case "star":
-        return <AiFillStar size={30} className="text-blue-600 text-xl p-2  " />;
+        return <AiFillStar size={32} className="text-blue-600 text-xl p-2  " />;
       default:
-        return <AiOutlineStar size={30} className="text-black text-xl p-2  " />;
+        return <AiOutlineStar size={32} className="text-black text-xl p-2  " />;
     }
   };
-
-  const [inputValue, setInputValue] = useState("");
-  const inputRef = useRef<HTMLInputElement>(null); // Ensure the correct type for the ref
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-  };
-
-  useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.style.width = inputValue ? "auto" : "100%";
-    }
-  }, [inputValue]);
-
   return (
     <div>
       <header className=" flex justify-between items-center p-3 pb-1 z-50">
+        {/*Docs Icon */}
         <BsFillFileEarmarkTextFill size={40} className="text-blue-500 " />
+        {/*Document Name */}
         <div className="flex-grow px-2 ">
-          <div className="flex flex-rowfont-semibold text-gray-500 text-xl">
-            <div>
-              <input
-                ref={inputRef}
-                type="text"
-                value={inputValue}
-                onChange={handleInputChange}
-                className="rounded-md bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                placeholder="Untitled Document"
-              />
-            </div>
+          <div className="flex flex-row  text-xl">
+            <input
+              type="text"
+              placeholder="Untitled document"
+              className="textinput" //Defined in styles.css
+            />
+            {/*Star aka Bookmark */}
+
             <button
-              className={`flex text-xs items-center rounded-full hover:bg-gray-200  transition-colors duration-300  ${
-                active === "calendar"
-              }`}
+              className={`iconstyle  ${active === "calendar"}`}
               onClick={() => handlestar("star")}
             >
-              {renderStarContent()}
+              {renderStarContent()} {/*Render the star icon based on state */}
             </button>
-            <button className="flex text-xs items-center rounded-full hover:bg-gray-200  transition-colors duration-300">
+            {/*MOve Button */}
+            <button className="iconstyle">
               <MdDriveFileMoveOutline
-                size={30}
+                size={32}
                 className="text-black text-xl p-2 "
               />
             </button>
-            <button className="flex text-xs items-center rounded-full hover:bg-gray-200  transition-colors duration-300">
-              <BsCloudCheck size={30} className="text-black text-xl p-2 " />
+            {/*See Document Status Button */}
+            <button className="iconstyle">
+              <BsCloudCheck size={32} className="text-black text-xl p-2 " />
             </button>
           </div>
+          {/*Tool Bar */}
           <div className="flex items-center text-m space-x-1 -ml-1 h-8 text-gray-900">
             <p className="option">File</p>
             <p className="option">Edit</p>
@@ -87,29 +78,43 @@ function HeaderSection() {
             <p className="option">Help</p>
           </div>
         </div>
-        <button className="flex text-xs items-center rounded-full hover:bg-gray-200  transition-colors duration-300 px-2">
-          <RxCountdownTimer size={35} className="text-black text-xl p-2 " />
-        </button>
-        <button className=" flex text-xs items-center rounded-full hover:bg-gray-200  transition-colors duration-300 px-2">
-          <MdOutlineMessage size={35} className="text-black text-xl p-2 " />
-        </button>
-        <button className=" flex text-xs items-center rounded-full hover:bg-gray-200  transition-colors duration-300 px-2">
-          <AiOutlineVideoCamera size={35} className="text-black text-xl p-2 " />
-          <AiFillCaretDown size={20} className="text-black text-xl p-1 " />
-        </button>
+        <div className="flex flex-row space-x-3">
+          {/*See Last Edit Button*/}
+          <button className="iconstyle ">
+            <RxCountdownTimer size={35} className="text-black text-xl p-2 " />
+          </button>
+          {/*See Comments Button */}
+          <button className=" iconstyle ">
+            <MdOutlineMessage size={35} className="text-black text-xl p-2 " />
+          </button>
+          {/*Call or Present Button */}
+          <button className=" iconstyle ">
+            <AiOutlineVideoCamera
+              size={35}
+              className="text-black text-xl p-2 "
+            />
+            <AiFillCaretDown size={20} className="text-black text-xl p-1 " />
+          </button>
+        </div>
 
-        <Button className=" bg-sky-200 rounded-full hover:bg-blue-200 hover:shadow-lg py-1.5 px-6 text-slate-700 text-base font-medium">
-          <LockOutlinedIcon
-            sx={{ fontSize: 28 }}
-            className="font-bold pr-2 pb-0.5"
-          />
-          Share
-        </Button>
-        <div className=" bg-white hover:bg-gray-400 rounded-full h-12 w-12 ml-2 transition-colors duration-300 ">
-          <img
-            className=" cursor-pointer rounded-full h-9 w-9 mt-1 ml-1 "
-            src="https://wallpapers-clan.com/wp-content/uploads/2022/02/demon-slayer-tanjiro-pfp-2.jpg"
-          />
+        <div className="flex flex-row space-x-2">
+          <div className="pl-2">
+            {/*Share Button */}
+            <Button className=" bg-sky-200 rounded-full hover:bg-blue-200 hover:shadow-lg py-1.5 px-6 text-slate-700 text-base font-medium">
+              <LockOutlinedIcon
+                sx={{ fontSize: 28 }}
+                className="font-bold pr-3 pb-0.5"
+              />
+              Share
+            </Button>
+          </div>
+          {/*Profile Icon */}
+          <div className="iconstyle ">
+            <img
+              className=" cursor-pointer rounded-full h-9 w-9 mt-1 ml-1 "
+              src="https://wallpapers-clan.com/wp-content/uploads/2022/02/demon-slayer-tanjiro-pfp-2.jpg"
+            />
+          </div>
         </div>
       </header>
     </div>

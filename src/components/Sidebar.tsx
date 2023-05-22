@@ -4,11 +4,36 @@ import { BsDashLg } from "react-icons/bs";
 import { SiGooglekeep, SiGooglecalendar, SiGooglemaps } from "react-icons/si";
 import { TaskAlt } from "@mui/icons-material";
 
+import CalendarContent from "../components/CalendarContent";
+import KeepContent from "../components/KeepContent";
+import TasksContent from "../components/TasksContent";
+import ContactsContent from "../components/ContactsContent";
+import MapsContent from "../components/MapsContent";
+
 const Sidebar: React.FC = () => {
   const [activeApp, setActiveApp] = useState("");
 
   const handleAppClick = (app: string) => {
     setActiveApp(app);
+  };
+
+  const renderAppContent = () => {
+    switch (activeApp) {
+      case "calendar":
+        return <CalendarContent />;
+      case "keep":
+        return <KeepContent />;
+      case "tasks":
+        return <TasksContent />;
+      case "contacts":
+        return <ContactsContent />;
+      case "maps":
+        return <MapsContent />;
+      case "addon":
+        return null;
+      default:
+        return null;
+    }
   };
 
   return (
@@ -95,6 +120,7 @@ const Sidebar: React.FC = () => {
           </ul>
         </div>
       </div>
+      <div className="">{renderAppContent()}</div>
     </nav>
   );
 };
