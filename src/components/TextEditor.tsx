@@ -24,7 +24,7 @@ function Editer() {
     wrapper.append(editer);
     new Quill(editer, { theme: "snow", modules: { toolbar: TOOLBAR_OPTIONS } });
   }, []);
-  return <div className="container" ref={wrapperRef}></div>;
+  return <div id="container" className="container" ref={wrapperRef}></div>;
 }
 
 export default Editer;
