@@ -35,7 +35,7 @@ function HeaderSection() {
   };
   return (
     <div>
-      <header className=" flex justify-between items-center p-3 pb-1 z-50">
+      <header className=" flex headerr justify-between items-center p-3 pb-1 z-50">
         {/*Docs Icon */}
         <BsFillFileEarmarkTextFill size={40} className="text-blue-500 " />
         {/*Document Name */}

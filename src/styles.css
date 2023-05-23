@@ -12,3 +12,12 @@
     @apply bg-transparent hover:border-2 w-48 hover:border-black rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
   }
 }
+
+@media print {
+  body {
+    background: none;
+  }
+  headerr {
+    display: none;
+  }
+}
