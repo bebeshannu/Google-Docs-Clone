@@ -10,7 +10,7 @@ body {
 }
 
 .container .ql-editor {
-  width: 9in;
+  width: 8in;
   min-height: 11in;
   padding: 1in;
   margin: 1rem;
@@ -30,7 +30,8 @@ body {
   position: sticky;
   top: 0;
   border-radius: 20px;
-  width: 17in;
+  width: 15in;
+
   z-index: 1;
   background-color: #e9eff2;
   border: none;

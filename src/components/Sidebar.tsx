@@ -37,11 +37,12 @@ const Sidebar: React.FC = () => {
   };
 
   return (
-    <nav className="bg-white-200 h-screen w-13 lg:fixed top-0 right-0">
+    <nav className="bg-white-200 h-30 w-13 z-50 fixed top-10 right-0">
+
       <div className="flex flex-col h-full">
         <div className="flex items-center justify-center h-16"></div>
         <div className="flex-grow ">
-          <ul className="flex flex-col space-y-3 p-2 pt-5 ">
+          <ul className="flex flex-col space-y-3 p-2 pt-8 ">
             <li>
               <button
                 className={`flex text-xs  rounded-full hover:bg-gray-200  transition-colors duration-300  ${
