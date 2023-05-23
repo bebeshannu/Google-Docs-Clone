@@ -5,10 +5,11 @@ import TextEditor from "./components/TextEditor";
 function App() {
   return (
     <>
-      <div className=" z-50">
+      <Sidebar />
+      <div className=" z-30">
         <HeaderSection />
       </div>
-      <Sidebar />
+
       <TextEditor />
     </>
   );

@@ -35,7 +35,7 @@ function HeaderSection() {
   };
   return (
     <div>
-      <header className=" flex headerr justify-between items-center p-3 pb-1 z-50">
+      <header className=" flex  justify-between items-center p-3 pb-1 z-50">
         {/*Docs Icon */}
         <BsFillFileEarmarkTextFill size={40} className="text-blue-500 " />
         {/*Document Name */}
@@ -109,9 +109,9 @@ function HeaderSection() {
             </Button>
           </div>
           {/*Profile Icon */}
-          <div className="iconstyle ">
+          <div className=" cursor-pointer rounded-full hover:bg-gray-300  transition-colors duration-300 h-11 w-12; ">
             <img
-              className=" cursor-pointer rounded-full h-9 w-9 mt-1 ml-1 "
+              className="  items-center rounded-full h-9 w-9 m-1 "
               src="https://wallpapers-clan.com/wp-content/uploads/2022/02/demon-slayer-tanjiro-pfp-2.jpg"
             />
           </div>
