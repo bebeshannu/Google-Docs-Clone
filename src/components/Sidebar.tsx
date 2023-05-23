@@ -37,7 +37,7 @@ const Sidebar: React.FC = () => {
   };
 
   return (
-    <nav className="bg-white-200 h-screen w-13 fixed top-25 right-0">
+    <nav className="bg-white-200 h-screen w-13 lg:fixed top-0 right-0">
       <div className="flex flex-col h-full">
         <div className="flex items-center justify-center h-16"></div>
         <div className="flex-grow ">
