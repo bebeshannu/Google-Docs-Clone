@@ -1,0 +1,14 @@
+@tailwind components;
+
+@layer components {
+  .option {
+    @apply cursor-pointer hover:bg-gray-200 transition duration-200 ease-out px-2 rounded-md;
+  }
+
+  .iconstyle {
+    @apply flex text-xs items-center rounded-full hover:bg-gray-200  transition-colors duration-300;
+  }
+  .textinput {
+    @apply bg-transparent hover:border-2 w-48 hover:border-black rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+  }
+}
