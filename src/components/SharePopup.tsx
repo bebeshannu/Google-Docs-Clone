@@ -34,7 +34,7 @@ const SharePopup: React.FC<SharePopupProps> = ({ onClose }) => {
             className=" bg-transparent border-2 p-2 w-full border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             placeholder="Add people and groups"
           />
-          <p className="mb-4 mt-2 text-base font-medium">People with access</p>
+          <p className="mb-4 mt-4 text-base font-medium">People with access</p>
           <div className="flex -m-4 p-4 hover:bg-gray-200">
             <div>
               <img
@@ -43,32 +43,34 @@ const SharePopup: React.FC<SharePopupProps> = ({ onClose }) => {
                 alt="Profile"
               />
             </div>
-            <div className="ml-2">
-              <p className="text-sm font-semibold">Shaina Jyothica (You)</p>
-              <p className="text-xs">jyothicashaina27@gmail.com</p>
+            <div className="ml-3">
+              <p className="text-m font-semibold">Shaina Jyothica (You)</p>
+              <p className="text-xs ml-1 -mt-0.5 text-gray-950 font-normal">
+                jyothicashaina27@gmail.com
+              </p>
             </div>
-            <div className="ml-auto mr-4">
+            <div className="ml-auto mr-4 font-normal">
               <p>Owner</p>
             </div>
           </div>
-          <p className="mb-4 mt-4 text-base font-medium">General access</p>
+          <p className="mb-4 mt-6 text-base font-medium">General access</p>
           <div className=" flex flex-row -m-4 hover:bg-gray-200 ">
-            <div className="flex pl-4 mt-2 mb-3">
+            <div className="flex p-2 mt-2 ml-2 mb-3">
               <div className="w-8 h-8 rounded-full flex items-center justify-center bg-gray-300">
                 <MdLockOutline size={20} />
               </div>
-              <div className="ml-2">
+              <div className="ml-3">
                 <div className="flex flex-row">
                   <p className="text-sm font-semibold">Restricted</p>
                   <AiFillCaretDown className="m-1" size={13} />
                 </div>
-                <p className="text-xs">
+                <p className="text-xs font-normal">
                   Only people with access can open with the link
                 </p>
               </div>
             </div>
           </div>
-          <div className="flex mt-6">
+          <div className="flex mt-8">
             <div>
               <button
                 className="align-middle select-none font-sans font-bold text-center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 border border-blue-500 text-blue-500 hover:opacity-75 focus:ring focus:ring-blue-200 active:opacity-[0.85] rounded-full flex items-center gap-2 normal-case"
