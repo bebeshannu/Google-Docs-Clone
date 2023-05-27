@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { BiPaperclip } from "react-icons/bi";
 
 interface CopyLinkButtonProps {
   link: string;
@@ -21,7 +22,10 @@ function CopyLinkButton({ link }: CopyLinkButtonProps) {
       {isCopied ? (
         <p>Link copied!</p>
       ) : (
-        <button onClick={handleCopyLink}>Copy Link</button>
+        <button className="flex flex-row" onClick={handleCopyLink}>
+          <BiPaperclip className="mt-1 mr-2" />
+          Copy Link
+        </button>
       )}
     </div>
   );
