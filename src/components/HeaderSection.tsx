@@ -14,6 +14,7 @@ import { MdDriveFileMoveOutline, MdOutlineMessage } from "react-icons/md";
 import { RxCountdownTimer } from "react-icons/rx";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import "../styles.css";
+import SharePopup from "../components/SharePopup";
 
 //Tried to implement wysiwyg editor but wasn't compatible so went ahead with Quill
 
@@ -33,6 +34,17 @@ function HeaderSection() {
         return <AiOutlineStar size={32} className="text-black text-xl p-2  " />;
     }
   };
+
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const handleOpenPopup = () => {
+    setIsPopupOpen(true);
+  };
+
+  const handleClosePopup = () => {
+    setIsPopupOpen(false);
+  };
+
   return (
     <div>
       <header className=" flex  justify-between items-center p-3 pb-1 z-50">
@@ -100,13 +112,17 @@ function HeaderSection() {
         <div className="flex flex-row space-x-2">
           <div className="pl-2">
             {/*Share Button */}
-            <Button className=" bg-sky-200 rounded-full hover:bg-blue-200 hover:shadow-lg py-1.5 px-6 text-slate-700 text-base font-medium">
+            <Button
+              onClick={handleOpenPopup}
+              className=" bg-sky-200 rounded-full hover:bg-blue-200 hover:shadow-lg py-1.5 px-6 text-slate-700 text-base font-medium"
+            >
               <LockOutlinedIcon
                 sx={{ fontSize: 28 }}
                 className="font-bold pr-3 pb-0.5"
               />
               Share
             </Button>
+            {isPopupOpen && <SharePopup onClose={handleClosePopup} />}
           </div>
           {/*Profile Icon */}
           <div className=" cursor-pointer rounded-full hover:bg-gray-300  transition-colors duration-300 h-11 w-12; ">
