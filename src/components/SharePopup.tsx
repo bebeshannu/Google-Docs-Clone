@@ -4,7 +4,6 @@ import { MdLockOutline } from "react-icons/md";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { FiSettings } from "react-icons/fi";
 import { AiFillCaretDown } from "react-icons/ai";
-import { BiPaperclip } from "react-icons/bi";
 interface SharePopupProps {
   onClose: () => void;
 }
@@ -75,7 +74,6 @@ const SharePopup: React.FC<SharePopupProps> = ({ onClose }) => {
                 className="align-middle select-none font-sans font-bold text-center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 border border-blue-500 text-blue-500 hover:opacity-75 focus:ring focus:ring-blue-200 active:opacity-[0.85] rounded-full flex items-center gap-2 normal-case"
                 type="button"
               >
-                <BiPaperclip />
                 <CopyLinkBUtton link="https://google-docs-clone-nine-mu.vercel.app/" />
               </button>
             </div>
